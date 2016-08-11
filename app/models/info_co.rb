@@ -1,0 +1,2 @@
+class InfoCo < ApplicationRecord
+end
