@@ -3,6 +3,10 @@ class PersonController < ApplicationController
     @kind = Person.new
   end
 
+  def show
+    @person = current_person_by_user
+  end
+
   def create
     p current_user
     p "*"*90
@@ -14,8 +18,8 @@ class PersonController < ApplicationController
   end
 
 private
-  def current_user_info
-    @user.person
+  def current_person_by_user
+    current_user.person
   end
 
   def info_params #parámetros fuertes para evitar la vulnerabilidad de asignación de masas 

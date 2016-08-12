@@ -1,0 +1,35 @@
+<% provide(:title, 'Personal Information') %>
+<h1>Personal Information</h1>
+<!-- Me gustaria cambiar la posicion de esta seccion -->
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h2>
+        <%= gravatar_for current_user %>
+        <em><b>Firstname:</b></em>
+        <%= @person.name%><br><br>
+
+        <em><b>Lastname:</b></em>
+        <%= @person.lastname%><br><br>
+
+        <em><b>Birthday:</b></em>
+        <%= @person.born%><br><br>
+
+        <em><b>Ocupation:</b></em>
+        <%= @person.ocupation%><br><br>
+
+        <em><b>Social Stat:</b></em>
+        <%= @person.soc_stat%><br><br>
+
+        <em><b>Personal page:</b></em>
+        <%= @person.page%><br><br>
+
+        <em><b>Description:</b></em>
+        <%= @person.description%><br><br>
+
+        <em><b>Member since:</b></em>
+        <%= @person.created_at%><br><br>
+      </h2>
+    </section>
+  </aside>
+</div>
