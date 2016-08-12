@@ -22,13 +22,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    p '**'*50
-    p user_params
+    p user_type = user_params[:profile]
+    if user_type == 0
+      p '*'*58
+      @kind = Person.new
+    else
+      # @kind = Company.new
+    end
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to Peacock!" #checar si necesita flash.now
-      redirect_to @user
+      flash.now[:success] = "Welcome to Peacock!" 
+      redirect_to infonew_path #@user
     else
       render 'new'
     end

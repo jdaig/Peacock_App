@@ -13,11 +13,6 @@
 ActiveRecord::Schema.define(version: 20160812015649) do
 
   create_table "companies", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "info_cos", force: :cascade do |t|
     t.string   "name_co"
     t.string   "ceo_co"
     t.string   "page"
@@ -27,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160812015649) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "info_pers", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
     t.string   "born"
@@ -38,11 +33,6 @@ ActiveRecord::Schema.define(version: 20160812015649) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
