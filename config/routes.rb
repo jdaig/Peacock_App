@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get    '/infonew', to: 'person#new'
+  post   '/infonew', to: 'person#create'
   resources :users
+  resources :person
 end

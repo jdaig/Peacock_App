@@ -1,4 +1,7 @@
 class Person < ApplicationRecord
-  has_one :users
+  validates :description,  length: { maximum: 150 }
+
+
+  # has_one :users
 
 end

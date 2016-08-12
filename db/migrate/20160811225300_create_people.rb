@@ -7,8 +7,9 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :ocupation
       t.string :soc_stat
       t.string :page
-      t.string :type
       t.text :description
+
+      t.belongs_to :user, index: true
       
       t.timestamps
     end

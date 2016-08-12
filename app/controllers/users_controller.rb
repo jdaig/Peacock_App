@@ -4,12 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index 
-    # Tenemos que hacer una variable que contiene
-    # los usuarios de todo el sitio y luego representar cada uno
-    # por iteración a través de ellos en la vista de índice.
-    
-    # @users = User.all
-
+    #Tengo que hacer algo al respecto de este, puede que no lo necesite
     @users = User.paginate(page: params[:page])
   end
 
@@ -22,18 +17,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    p user_type = user_params[:profile]
-    if user_type == 0
-      p '*'*58
-      @kind = Person.new
-    else
-      # @kind = Company.new
-    end
+    user_type = user_params[:profile]
+    p user_type
     @user = User.new(user_params)
     if @user.save
       log_in @user
       flash.now[:success] = "Welcome to Peacock!" 
-      redirect_to infonew_path #@user
+      if user_type == "0"
+        redirect_to infonew_path #@user
+      else
+        #redirect_to infoconew_path #@user
+      end
     else
       render 'new'
     end
@@ -61,8 +55,7 @@ class UsersController < ApplicationController
   private
 
     def user_params #parámetros fuertes para evitar la vulnerabilidad de asignación de masas 
-      # p params.require(:user).permit(:profile)
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:email, :password,
                                    :password_confirmation, :profile)
     end
 
