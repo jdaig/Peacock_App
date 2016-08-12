@@ -6,6 +6,11 @@
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= render 'shared/error_messages' %>
 
+      <%= f.label :profile, class: "checkbox inline" do %>
+        <%= f.check_box :profile %>
+        <span>Company</span><br>
+      <% end %>
+
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
