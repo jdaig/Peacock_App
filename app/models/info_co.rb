@@ -1,2 +1,0 @@
-class InfoCo < ApplicationRecord
-end

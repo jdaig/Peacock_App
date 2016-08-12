@@ -1,2 +1,0 @@
-class InfoPer < ApplicationRecord
-end

@@ -10,10 +10,10 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   #***********************************
-  belongs_to :profile, polymorphic: true #Descomenta esta!!!!!!!!!*****
+  validates :profile, presence: true
+  # belongs_to :profile 
   #has_many :relation #Un usuario tiene muchas relaciones
   #has_many :reputation #Un usuario tiene muchas reputaciones
-  #has_one :info #Un usuario tiene una informacion personal, no sé si hacer otro tipo de usuario
   #***********************************
 
   # Returns the hash digest of the given string.
