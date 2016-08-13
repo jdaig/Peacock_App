@@ -23,13 +23,16 @@ class PersonController < ApplicationController
   def update
     @person = current_person_by_user
     if @person.update(info_params)
-      flash.now[:success] = "Profile updated"
+      flash[:success] = "Profile updated"
       redirect_to @person
     else
       render 'edit'
     end
   end
 
+  def index
+    #aqui se pondra los repute
+  end
 
 private
   def current_person_by_user

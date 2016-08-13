@@ -4,8 +4,10 @@ class CreateCompanies < ActiveRecord::Migration[5.0]
       t.string :name_co
       t.string :ceo_co
       t.string :page
-      t.string :type
+      t.string :type_co
       t.text :description
+
+      t.belongs_to :user, index: true
       
       t.timestamps
     end

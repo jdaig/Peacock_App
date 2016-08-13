@@ -8,7 +8,7 @@ module UsersHelper
     if user.person
       image_tag(gravatar_url, alt: user.person.name, class: "gravatar")
     else
-      image_tag(gravatar_url, alt: user.company.name, class: "gravatar")
+      image_tag(gravatar_url, alt: user.company.name_co, class: "gravatar")
     end
   end
 end

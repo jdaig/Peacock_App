@@ -1,3 +1,4 @@
+<% if @user.person%>
 <% provide(:title, @user.person.name) %>
 <div class="row">
   <aside class="col-md-4">
@@ -10,3 +11,17 @@
     </section>
   </aside>
 </div>
+<% else%>
+<% provide(:title, @user.company.name_co) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.company.name_co %><br><br>
+        <%= link_to "Information", company_path %>
+      </h1>
+    </section>
+  </aside>
+</div>
+<% end %>

@@ -22,11 +22,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash.now[:success] = "Welcome to Peacock!" 
+      flash[:success] = "Welcome to Peacock!" 
       if user_type == "0"
         redirect_to infonew_path #@user
       else
-        #redirect_to infoconew_path #@user
+        redirect_to infoconew_path #@user
       end
     else
       render 'new'

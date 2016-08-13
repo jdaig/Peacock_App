@@ -12,7 +12,7 @@ class User < ApplicationRecord
   #***********************************
   validates :profile, presence: true
   has_one :person
-  # belongs_to :profile 
+  has_one :company
   #has_many :relation #Un usuario tiene muchas relaciones
   #has_many :reputation #Un usuario tiene muchas reputaciones
   #***********************************

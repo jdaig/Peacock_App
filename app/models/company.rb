@@ -1,4 +1,4 @@
 class Company < ApplicationRecord
-  has_one :users
+  validates :description,  length: { maximum: 150 }
 
 end
