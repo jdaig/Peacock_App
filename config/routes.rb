@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get    '/infonew', to: 'person#new'
   post   '/infonew', to: 'person#create'
+  get    '/update',  to: 'person#update'
+  patch  '/update',  to: 'person#update'
   resources :users
   resources :person
 end

@@ -8,14 +8,28 @@ class PersonController < ApplicationController
   end
 
   def create
-    p current_user
-    p "*"*90
-    p info_params
     @person = Person.new(info_params)
     if @person.save
       redirect_to current_user
+    else
+      render 'new'
     end
   end
+
+  def edit
+    @person = current_person_by_user
+  end
+
+  def update
+    @person = current_person_by_user
+    if @person.update(info_params)
+      flash.now[:success] = "Profile updated"
+      redirect_to @person
+    else
+      render 'edit'
+    end
+  end
+
 
 private
   def current_person_by_user
