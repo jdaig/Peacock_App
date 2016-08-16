@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :users
   resources :person
   resources :company
+  resources :relation
 end

@@ -13,8 +13,6 @@ class User < ApplicationRecord
   validates :profile, presence: true
   has_one :person
   has_one :company
-  #has_many :relation #Un usuario tiene muchas relaciones
-  #has_many :reputation #Un usuario tiene muchas reputaciones
   #***********************************
 
   # Returns the hash digest of the given string.

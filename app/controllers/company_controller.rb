@@ -31,6 +31,7 @@ class CompanyController < ApplicationController
   end
 
   def index
+    @kind = Company.new
     #aqui se pondra los repute
   end
 
