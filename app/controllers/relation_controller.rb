@@ -3,17 +3,18 @@ class RelationController < ApplicationController
     @kind = Relation.new
   end
 
-  def show
-    #en el view hay que redireccionarlo a repute, o ratyrate
-  end
-
   def create
-    @person = Relation.new(rela_params)
-    if @person.save
+    @relation = Relation.new(rela_params)
+    if @relation.save
       current_user_topic #recuerda ver si es person o company
     else
       render 'new'
     end
+  end
+
+  def show
+    @person = Person.find(params[:id])
+    #en el view hay que redireccionarlo a repute, o ratyrate
   end
 
   def edit
@@ -21,17 +22,16 @@ class RelationController < ApplicationController
   end
 
   def update
-    @person = current_person_by_user
-    if @person.update(info_params)
-      flash[:success] = "Profile updated"
-      redirect_to @person
-    else
-      render 'edit'
-    end
   end
 
   def index
     #aqui se pondra los repute
+  end
+
+  def destroy 
+    Relation.find_by(params[:id]).destroy
+    flash[:success] = "Employees update"
+    redirect_to company_index_path
   end
 
 private

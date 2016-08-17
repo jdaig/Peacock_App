@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :profile, presence: true
   has_one :person
   has_one :company
+  ratyrate_rater
   #***********************************
 
   # Returns the hash digest of the given string.
