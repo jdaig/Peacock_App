@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160817010460) do
     t.string   "ceo_co"
     t.string   "page"
     t.string   "type_co"
+    t.string   "latitud"
+    t.string   "longitud"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

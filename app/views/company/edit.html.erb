@@ -6,7 +6,7 @@
     <%= form_for(@company) do |f| %>
       <%= render 'shared/error_messages_company' %>
 
-      <%= f.label "Business name" %>
+      <%= f.label "Company name" %>
       <%= f.text_field :name_co, class: 'form-control' %>
       
       <%= f.label :ceo_co %>
@@ -17,6 +17,13 @@
 
       <%= f.label "Type of company" %>
       <%= f.text_field :type_co, class: 'form-control' %>
+
+      <%= f.hidden_field :latitud, class: 'form-control' %>
+      <%= f.hidden_field :longitud, class: 'form-control' %>
+      
+      <%= render 'maps/geoloc_map' %><br>
+    
+      <%= f.button "Localizar", type:"button", onclick:"localizar()", class: "btn btn-primary" %><br><br>
       
       <%= f.label :description %>
       <%= f.text_field :description, class: 'form-control' %>

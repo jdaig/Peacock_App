@@ -25,6 +25,12 @@
 
         <em><b>Member since:</b></em>
         <%= @company.created_at%><br><br>
+
+        <%= form_for(@company) do |f| %>
+        <%= f.hidden_field :latitud, value: @company.latitud %>
+        <%= f.hidden_field :longitud, value: @company.longitud %>
+        <%= render 'maps/show_map' %>
+      <%end%>
       </h2>
     </section>
   </aside>

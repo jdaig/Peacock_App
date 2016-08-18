@@ -18,12 +18,20 @@
       <%= f.label "Type of company" %>
       <%= f.text_field :type_co, class: 'form-control' %>
       
+      <%= f.hidden_field :latitud, class: 'form-control' %>
+      <%= f.hidden_field :longitud, class: 'form-control' %>
+      
+      <%= render 'maps/geoloc_map' %>
+      
+      <%= f.button "Localizar", type:"button", onclick:"localizar()", class: "btn btn-primary" %><br><br>
+      
       <%= f.label :description %>
       <%= f.text_field :description, class: 'form-control' %>
       
       <%= f.hidden_field :user_id, value: current_user.id %>
-      
+
       <%= f.submit "Save Information", class: "btn btn-primary" %>
+
     <% end %>
-  </div>
-</div>
+   </div>
+

@@ -1,0 +1,57 @@
+<br>
+<div id="map"></div>
+
+    <script>
+      var map;
+
+      function localizar(){
+        navigator.geolocation.watchPosition(showPosition);
+
+      }
+
+      function showPosition(position){
+        document.getElementById("company_latitud").value = position.coords.latitude;
+        document.getElementById("company_longitud").value = position.coords.longitude;
+        initMap();
+      }
+
+      function initMap(){
+        //Constructor creates a new map - only center an zoom are required.
+        var coordx=document.getElementById("company_latitud").value;
+        var coordy=document.getElementById("company_longitud").value;
+        var mapOptions = {
+          center: new google.maps.LatLng(coordx,coordy),
+          zoom:13
+        };
+
+        map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+        var place = new google.maps.LatLng(coordx,coordy);
+        var marker = new google.maps.Marker({
+          position: place,
+          map: map,
+          title: "Company location."
+          // ,draggable: true
+        });
+        var infowindow = new google.maps.InfoWindow({
+          content: "Your Company are here!"
+        });
+        
+        marker.addListener('click', function(){
+          infowindow.open(map, marker);
+        });
+      }
+
+    function init(){
+        //Constructor creates a new map - only center an zoom are required.
+        var mapOptions = {
+          center: new google.maps.LatLng(37.4030185,-122.3212784),
+          zoom:13
+        };
+
+        map = new google.maps.Map(document.getElementById('map'),mapOptions);
+      }
+    </script>
+    <script async defender
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU6YmM6uG83D5de-9UgaJutDTwGGh7WNU&v=3&callback=init">
+    </script>
