@@ -42,6 +42,6 @@ private
 
   def infoco_params #parámetros fuertes para evitar la vulnerabilidad de asignación de masas 
       params.require(:company).permit(:name_co, :ceo_co, :page, 
-                                      :type_co, :description, :user_id)
+                                      :type_co, :latitud, :longitud, :description, :user_id)
   end
 end

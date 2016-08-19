@@ -17,9 +17,10 @@
 
       <%= f.label "Type of company" %>
       <%= f.text_field :type_co, class: 'form-control' %>
+      
 
-      <%= f.hidden_field :latitud, class: 'form-control' %>
-      <%= f.hidden_field :longitud, class: 'form-control' %>
+      <%= f.hidden_field :latitud, class: 'form-control', value: @company.latitud %>
+      <%= f.hidden_field :longitud, class: 'form-control', value: @company.longitud %>
       
       <%= render 'maps/geoloc_map' %><br>
     

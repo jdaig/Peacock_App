@@ -4,6 +4,10 @@
     <script>
       var map;
 
+      var image = new google.maps.MarkerImage(
+        '/app/assets/images/Peacock.png', new google.maps.Size(30,28)
+        )
+
       function localizar(){
         navigator.geolocation.watchPosition(showPosition);
 
@@ -21,7 +25,7 @@
         var coordy=document.getElementById("company_longitud").value;
         var mapOptions = {
           center: new google.maps.LatLng(coordx,coordy),
-          zoom:13
+          zoom:16
         };
 
         map = new google.maps.Map(document.getElementById('map'),mapOptions);
@@ -30,7 +34,8 @@
         var marker = new google.maps.Marker({
           position: place,
           map: map,
-          title: "Company location."
+          title: "Company location.",
+          animation: google.maps.Animation.BOUNCE
           // ,draggable: true
         });
         var infowindow = new google.maps.InfoWindow({
@@ -40,16 +45,30 @@
         marker.addListener('click', function(){
           infowindow.open(map, marker);
         });
+
       }
 
     function init(){
         //Constructor creates a new map - only center an zoom are required.
+        var image = new google.maps.MarkerImage(
+        'http://thumb9.shutterstock.com/thumb_small/155329/155329,1271409434,12/stock-vector-vector-of-single-peacock-feather-51127012.jpg', new google.maps.Size(80,100)
+        )
+
         var mapOptions = {
           center: new google.maps.LatLng(37.4030185,-122.3212784),
           zoom:13
         };
 
         map = new google.maps.Map(document.getElementById('map'),mapOptions);
+
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(37.4030185,-122.3212784),
+          map: map,
+          title: "Peacock.",
+          icon: image
+          // ,draggable: true
+        });
+        
       }
     </script>
     <script async defender
