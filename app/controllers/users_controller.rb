@@ -52,6 +52,16 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def search
+    @user = User.new
+    @person = Person.new
+    @company = Company.new
+  end
+
+  def find
+    
+  end
+
   private
 
     def user_params #parámetros fuertes para evitar la vulnerabilidad de asignación de masas 

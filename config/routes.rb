@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post   '/infonew', to: 'person#create'
   get    '/infoconew', to: 'company#new'
   post   '/infoconew', to: 'company#create'
+  get    '/search', to: 'users#search', as: 'search'
+  post   '/find', to: 'users#find', as: 'find'
   resources :users
   resources :person
   resources :company
